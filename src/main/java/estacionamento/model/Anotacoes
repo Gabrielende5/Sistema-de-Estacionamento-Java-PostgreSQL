@@ -1,0 +1,12 @@
+Representa a tabela usuario.
+Essa tabela possui
+    id_usuario
+    nome
+    email
+    senha
+    cpf
+    telefone
+ Então a classe Usuario terá esses atributos.
+
+É aqui que vamos colocar as anotações do JPA para dizer:
+    "Essa classe Java representa a tabela usuario do PostgreSQL."

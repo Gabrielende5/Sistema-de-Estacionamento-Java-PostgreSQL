@@ -1,0 +1,11 @@
+Aqui ficam as regras do cadastro.
+Por exemplo:
+    Recebe usuário
+          ↓
+    Verifica se email já existe
+          ↓
+    Verifica outras regras
+          ↓
+    Manda salvar
+
+ Então é onde colocaremos a lógica do sistema.

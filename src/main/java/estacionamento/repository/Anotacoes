@@ -1,0 +1,8 @@
+É a parte que permite ao Java conversar com a tabela.
+
+Por exemplo, posteriormente poderemos fazer:
+    usuarioRepository.save(usuario);
+ E isso fará o equivalente a um:
+    INSERT INTO usuario ...
+
+ sem você precisar escrever o INSERT manualmente.

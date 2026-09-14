@@ -1,0 +1,14 @@
+É a porta de entrada para o site.
+
+Por exemplo, o frontend poderá enviar:
+    POST /usuarios
+ com:
+    {
+        "nome": "Gabriel",
+        "email": "gabriel@email.com",
+        "senha": "123456",
+        "cpf": "12345678900",
+        "telefone": "12999999999"
+    }
+
+ O Controller recebe isso e encaminha para o Service.
