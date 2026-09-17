@@ -1,9 +1,6 @@
 package estacionamento.service;
 
-import estacionamento.model.Reserva;
-import estacionamento.model.ReservaResumo;
-import estacionamento.model.Usuario;
-import estacionamento.model.UsuarioResumo;
+import estacionamento.model.*;
 import estacionamento.repository.ReservaRepository;
 import estacionamento.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
@@ -12,6 +9,8 @@ import java.math.BigDecimal;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ReservaService {
@@ -38,7 +37,8 @@ public class ReservaService {
                                         //Logo, se irá criar um ReservaResumo e um UsuarioResumo para resolver esse problema e mostrar apenas o nome + id
         UsuarioResumo usuarioResumo = new UsuarioResumo(
                 usuario.getIdUsuario(),
-                usuario.getNome()
+                usuario.getNome(),
+                usuario.getEmail()
         );
 
         reserva.setValorBase(BigDecimal.TEN); //Impede que o usuário controle o valorBase
@@ -87,5 +87,16 @@ public class ReservaService {
                 reservaSalva.getStatus()
         );
 //        return reservaRepository.save(reserva);
+
+    }
+
+    //Parte do NativeQuery
+    public List<RelatorioUsuario> gerarRelatorio(){
+        List<Object[]> resultado = reservaRepository.buscarRelatorio();
+        List<RelatorioUsuario> relatorios = new ArrayList<>();
+        for (int i = 0; i < resultado.size(); i++) {
+            relatorios.add(new RelatorioUsuario((Integer) resultado.get(i)[0], (String) resultado.get(i)[1], (Long) resultado.get(i)[2], (BigDecimal) resultado.get(i)[3]));
+        }
+        return relatorios;
     }
 }
