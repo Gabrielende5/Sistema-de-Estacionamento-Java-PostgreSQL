@@ -5,25 +5,26 @@ import java.math.BigDecimal;
 public class RelatorioAvaliacao {
 
     private BigDecimal media;
-    private Long quantidade;
+    private Long quantidadeAvaliacoes;
 
-    public RelatorioAvaliacao(BigDecimal media, Long quantidade){
+    public RelatorioAvaliacao(BigDecimal media, Long quantidadeAvaliacoes){
         this.media = media;
-        this.quantidade = quantidade;
-    }
-
-    public void setQuantidade(Long quantidade) {
-        this.quantidade = quantidade;
-    }
-
-    public Long getQuantidade() {
-        return quantidade;
+        this.quantidadeAvaliacoes = quantidadeAvaliacoes;
     }
 
     public BigDecimal getMedia(){
         return media;
     }
+
     public void setMedia(BigDecimal media){
-        this.media=media;
+        this.media = media;
+    }
+
+    public Long getQuantidadeAvaliacoes(){
+        return quantidadeAvaliacoes;
+    }
+
+    public void setQuantidadeAvaliacoes(Long quantidadeAvaliacoes){
+        this.quantidadeAvaliacoes = quantidadeAvaliacoes;
     }
 }

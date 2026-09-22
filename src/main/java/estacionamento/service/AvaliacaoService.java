@@ -6,6 +6,7 @@ import estacionamento.repository.ReservaRepository;
 import estacionamento.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Service
@@ -17,6 +18,9 @@ public class AvaliacaoService {
         this.avaliacaoRepository = avaliacaoRepository;
         this.reservaRepository = reservaRepository;
         this.usuarioRepository = usuarioRepository;
+    }
+    public RelatorioAvaliacao buscarMediaAvaliacoes(){
+        return avaliacaoRepository.buscarMediaAvaliacoes();
     }
     public AvaliacaoResumo registrarAvaliacao(Avaliacao avaliacao){
          if (avaliacao.getNota()<1 || avaliacao.getNota()>5){ //Provavelmente não precisa, pois no SQL já filtra
